@@ -1,0 +1,104 @@
+/* ---- cores e base ---- */
+  :root{--bg:#f3f5f7;--card:#fff;--ink:#1c2630;--mut:#5d6b78;--line:#d5dce3;--acc:#0b5c8a;--acc2:#e8f1f7}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.4 "Segoe UI",Arial,sans-serif;padding:20px}
+  h1{font-size:20px;margin:0 0 14px} h2{font-size:15px;margin:0 0 10px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px;margin-bottom:16px}
+  .cab{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+  /* ---- campos e botões ---- */
+  label{display:block;font-size:12px;color:var(--mut);margin-bottom:3px}
+  input,select{width:100%;padding:7px 8px;border:1px solid var(--line);border-radius:4px;font:inherit;background:#fff}
+  input:focus,select:focus{outline:2px solid var(--acc)} input[readonly]{background:var(--acc2)}
+  button{font:inherit;padding:8px 14px;border-radius:4px;border:1px solid var(--acc);background:#fff;color:var(--acc);cursor:pointer}
+  button.pri{background:var(--acc);color:#fff}
+  .abas{display:flex;gap:6px;margin-bottom:12px;flex-wrap:wrap}
+  .aba{border-radius:4px 4px 0 0;background:#fff;border:1px solid var(--line)}
+  .aba.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+  .barra{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}
+  /* ---- tabelas ---- */
+  .rolagem{overflow-x:auto} table{border-collapse:collapse;width:100%}
+  th{background:var(--acc);color:#fff;font-size:12px;padding:6px;text-align:left;white-space:nowrap}
+  td{padding:2px;border-bottom:1px solid var(--line);white-space:nowrap}
+  td input,td select{border-color:transparent;padding:5px 6px;min-width:70px}
+  td input:hover,td select:hover{border-color:var(--line)}
+  td.calc{background:var(--acc2);padding:5px 8px} /* células calculadas: não editáveis */
+  td.x{width:34px;text-align:center} .num{text-align:right}
+  .del{border:none;color:#a33;padding:2px 8px;font-size:16px}
+  .total{margin-left:auto;font-size:16px} .total b{color:var(--acc)}
+  .nota{font-size:12px;color:var(--mut);margin:0 0 10px} .aviso{color:#a33}
+  /* ---- memória de cálculo ---- */
+  .mem{border:1px solid var(--line);border-radius:4px;margin-bottom:10px}
+  .mem h3{margin:0;padding:6px 10px;background:var(--acc2);font-size:13px}
+  .mem pre,.legenda{margin:0;padding:10px;font:12px/1.6 Consolas,monospace;white-space:pre-wrap}
+  .legenda{background:var(--acc2);border-radius:4px;margin-bottom:12px}
+  /* ---- seções minimizáveis ---- */
+  .sec{background:var(--card);border:1px solid var(--line);border-radius:6px;margin-bottom:10px}
+  .sec>summary{cursor:pointer;padding:8px 12px;font-weight:600;font-size:13px;color:var(--acc);list-style:none}
+  .sec>summary::before{content:"▸  "} .sec[open]>summary::before{content:"▾  "}
+  .sec>.corpo{padding:0 10px 10px}
+  .sec .card{margin-bottom:10px}
+  /* ---- grade compacta das seções minimizadas ---- */
+  .secoes{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-bottom:14px;align-items:start}
+  .secoes .sec{margin:0}
+  .secoes .sec[open]{grid-column:1/-1} /* seção aberta ocupa a linha inteira */
+  /* ---- mais compacto ---- */
+  .cab{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+  .card{padding:12px}
+  td input,td select{font-size:13px;padding:4px 5px;min-width:60px}
+  th{padding:5px}
+  /* ---- responsivo: tablets e celulares ---- */
+  @media (max-width:900px){body{padding:12px} .secoes{grid-template-columns:repeat(3,1fr)}}
+  @media (max-width:600px){
+    body{padding:8px;font-size:13px} h1{font-size:17px}
+    .secoes{grid-template-columns:repeat(2,1fr)}
+    .barra button{flex:1 1 45%} .total{margin-left:0;width:100%;order:-1}
+    .legenda,.mem pre{font-size:11px}
+  }
+  [hidden]{display:none!important}
+  /* ---- tela de login ---- */
+  #loginGate{position:fixed;inset:0;background:#edf1f5;z-index:9999;display:flex;align-items:center;justify-content:center}
+  #loginGate .loginbox{background:white;padding:28px;border:1px solid #ccd4dc;border-radius:10px;width:min(360px,92vw);box-shadow:0 8px 30px #0002}
+  #loginGate h2{margin-bottom:16px}
+  :root{--bg:#eef3f8;--card:#fff;--ink:#172b3a;--mut:#607384;--line:#d8e2eb;--acc:#126c91;--acc2:#e6f3f7}
+  body{background:linear-gradient(180deg,#eaf3f8 0,#f5f7fa 300px);padding:24px;max-width:1600px;margin:auto}
+  .topnav{position:sticky;top:0;z-index:50;margin:-24px -24px 22px;padding:14px 24px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);box-shadow:0 4px 18px #17354b12}
+  .topnav strong{display:block;color:#124a68;font-size:18px;margin-bottom:10px}.navlinks{display:flex;gap:8px;overflow-x:auto;padding-bottom:2px}.navlinks button{white-space:nowrap;background:#f2f7fa;border:1px solid #d7e5ec;border-radius:999px;padding:8px 14px;font-size:13px}.navlinks button:hover,.navlinks button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+  .sec>summary{display:none}.secoes{display:block}.sec{border:0;background:transparent}.sec>.corpo{padding:0}.sec .card,.card{border-radius:12px;box-shadow:0 5px 22px #17354b0c;border-color:#e0e8ee;padding:18px}.sec .card{margin-bottom:0}
+  button{transition:background .15s,border-color .15s,transform .15s}button:hover{background:#eaf4f8}button:active{transform:translateY(1px)}button.pri{background:var(--acc)}
+  th{background:#145b79}input:focus,select:focus{outline:2px solid #7bc1d6;outline-offset:1px}
+  @media(max-width:600px){body{padding:10px}.topnav{margin:-10px -10px 14px;padding:12px 10px}.topnav strong{font-size:16px}.navlinks button{font-size:12px;padding:7px 11px}.sec .card,.card{padding:12px}}
+  .eq-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}.eq-card{background:linear-gradient(145deg,#fff,#f2f8fb);border:1px solid #dfebf1;border-radius:10px;padding:14px}.eq-card h3{margin:0 0 7px;color:#145b79;font-size:14px}.eq-card p{margin:5px 0;color:#516574}.eq-formula{font:600 13px/1.55 Consolas,monospace;color:#18394c;background:#eaf4f8;padding:8px 10px;border-radius:7px}
+  td textarea{min-width:210px;min-height:42px;padding:6px;border:1px solid var(--line);border-radius:5px;font:13px/1.35 inherit;resize:vertical}.favoritos{gap:6px;margin-top:6px}.favoritos select{min-width:140px;font-size:12px;padding:5px}.favoritos button{font-size:12px;padding:5px 8px}
+  /* ---- colunas com largura ajustável ---- */
+  th{position:relative} /* permite posicionar a "alça" dentro do cabeçalho */
+  .grip{position:absolute;right:0;top:0;bottom:0;width:6px;cursor:col-resize;touch-action:none} /* alça de arrastar */
+  .grip:hover{background:#ffffff66} /* destaque ao passar o mouse */
+  table.redim{table-layout:fixed} /* larguras passam a ser respeitadas */
+  table.redim th,table.redim td{overflow:hidden;text-overflow:ellipsis} /* texto longo não invade a coluna ao lado */
+  table.redim td input,table.redim td select,table.redim td textarea{min-width:0;width:100%} /* campos acompanham a coluna */
+  /* ---- salvamento automático ---- */
+  .autorow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px} /* linha da caixinha */
+  .autorow input{width:auto} /* caixinha não ocupa a linha toda */
+  .autorow label{display:inline;margin:0;font-size:13px;color:var(--ink);cursor:pointer}
+  .autorow span{font-size:12px;color:var(--mut)} .autorow span.aviso{color:#a33} /* aviso em vermelho */
+  /* ---- campo essencial em branco: amarelo bem claro ---- */
+  .falta{background:#fff9d6!important}
+  /* ---- sopradores ---- */
+  .sopbtn{padding:2px 8px;font-size:15px;border-color:var(--line);background:#fff;opacity:.55} /* ícone desligado */
+  .sopbtn.on{background:var(--acc);border-color:var(--acc);opacity:1} /* ícone ligado */
+  .totaisProj{margin-top:12px;display:grid;gap:4px;font-size:14px} .totaisProj b{color:var(--acc)}
+  .totaisProj .geral{font-size:16px;font-weight:600;border-top:1px solid var(--line);padding-top:6px}
+  .sopblocos{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:10px;margin-top:12px} /* quadros "SOPRO – nome" */
+  #cabMang th:nth-child(2),#corpoMang td:nth-child(2){min-width:155px}
+  #corpoMang .campo-diametro-interno{background:#fff;border-color:#7aaec3;cursor:text}
+  #corpoMang .campo-diametro-interno:focus{outline:2px solid var(--acc);outline-offset:1px}
+  #cabMang th:nth-child(3),#corpoMang td:nth-child(3){min-width:135px}
+  #cabSop th:nth-child(6),#corpoSop td:nth-child(6){min-width:145px}
+  #cabSop th:nth-child(7),#corpoSop td:nth-child(7),#cabSop th:nth-child(13),#corpoSop td:nth-child(13){min-width:165px}
+  td.aviso{background:#ffe3e3!important;color:#9b1c1c!important;font-weight:700}
+  .sopblocos .mem{margin-bottom:0} .sopblocos td{white-space:normal;padding:4px 8px} .sopblocos td:last-child{text-align:right;font-weight:600}
+  .linha-select{width:18px!important;min-width:18px!important;height:18px;cursor:pointer}
+  .menu-linhas{position:fixed;z-index:20000;min-width:230px;padding:5px;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 8px 24px #17354b30}
+  #sharedSyncStatus{font-size:12px;color:#426275}
+  .menu-linhas button{display:block;width:100%;padding:8px 10px;border:0;border-radius:5px;text-align:left;color:var(--ink);background:#fff;font-size:13px}
+  .menu-linhas button:hover:not(:disabled){background:var(--acc2)} .menu-linhas button:disabled{opacity:.45;cursor:not-allowed}

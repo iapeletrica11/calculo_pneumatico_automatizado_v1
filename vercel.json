@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/consumo_pneumatico_com_login_projetos.html"
+    }
+  ]
+}
